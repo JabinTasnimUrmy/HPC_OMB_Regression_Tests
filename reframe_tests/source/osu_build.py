@@ -20,7 +20,7 @@ class OsuBuildSource(rfm.CompileOnlyRegressionTest):
 
     omb_version = variable(str, value='7.2')
 
-    # --- Build Preparation Hook: @run_before('compile') ---
+    
     @run_before('compile')
     def prepare_build_environment(self):
         source_tarball = f'osu-micro-benchmarks-{self.omb_version}.tar.gz'
@@ -51,7 +51,7 @@ class OsuBuildSource(rfm.CompileOnlyRegressionTest):
     # --- Sanity Check Hook: @sanity_function ---
     @sanity_function
     def validate_compiled_binaries(self):
-        # FINAL FIX: The installation path from the Makefile does not include the 'standard' subdirectory.
+        
         benchmark_bin_path = os.path.join(self.stagedir, 'install', 'libexec', 
                                           'osu-micro-benchmarks', 'mpi', 
                                           'pt2pt')

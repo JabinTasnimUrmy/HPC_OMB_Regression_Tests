@@ -18,7 +18,7 @@ class OsuLatencyPlacementTest(rfm.RunOnlyRegressionTest):
     def set_dependencies(self):
         self.depends_on('OsuBuildSource')
 
-    # In the setup phase, we ONLY configure things that do NOT need self.job
+    # ONLY configure things that do NOT need self.job
     @run_before('setup')
     def set_resources_by_placement(self):
         placement_desc = {
@@ -35,7 +35,7 @@ class OsuLatencyPlacementTest(rfm.RunOnlyRegressionTest):
             self.num_nodes = 1
             self.num_tasks_per_node = 2
 
-    # In the run phase, we can safely access self.job and the fixture
+    # Safely access self.job and the fixture
     @run_before('run')
     def set_executable_and_launcher_options(self):
         # Set launcher options now that self.job exists

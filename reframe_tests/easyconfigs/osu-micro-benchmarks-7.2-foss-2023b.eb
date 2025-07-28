@@ -1,0 +1,32 @@
+easyblock = 'ConfigureMake'
+
+name = 'OSU-Micro-Benchmarks'
+version = '7.2'
+
+homepage = 'https://mvapich.cse.ohio-state.edu/benchmarks/'
+description = """OSU MPI Micro-Benchmarks"""
+
+toolchain = {'name': 'foss', 'version': '2023b'}
+# This is the critical option that ensures the MPI benchmarks are built.
+toolchainopts = {'usempi': True}
+
+source_urls = ['https://mvapich.cse.ohio-state.edu/download/mvapich/']
+# SOURCELOWER_TAR_GZ is a standard EasyBuild constant for this source format.
+sources = ['osu-micro-benchmarks-%(version)s.tar.gz']
+checksums = ['1a4e1f2aab0e65404b3414e23bd46616184b69b6231ce9313d9c630bd6e633c1']
+
+# Defines the list of directories where the benchmarks are installed.
+local_benchmark_dirs = [
+    'libexec/osu-micro-benchmarks/mpi/%s' % x for x in ['collective', 'one-sided', 'pt2pt', 'startup']
+]
+
+# Adds the benchmark directories to the user's PATH when the module is loaded.
+modextrapaths = {'PATH': local_benchmark_dirs}
+
+# The sanity check verifies that the installation directories were created.
+sanity_check_paths = {
+    'files': [],
+    'dirs': local_benchmark_dirs,
+}
+
+moduleclass = 'perf'

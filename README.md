@@ -102,9 +102,31 @@ reframe -C reframe_tests/configs/configs.py -c reframe_tests/easybuild_tests/ --
 ```bash
 reframe -C reframe_tests/configs/configs.py -c reframe_tests/eessi_tests/ --run --performance-report
 ```
-
+---
+# Resources
+1. ReFrame Testing Framework: https://reframe-hpc.readthedocs.io 
+2. EESSI Software Stack: https://www.eessi.io/docs
+3. OSU Micro-Benchmarks: http://mvapich.cse.ohio-state.edu/benchmarks/
+4. ULHPC User Guide: https://hpc.uni.lu/users/docs/
 
 ---
 
+# Aion Performance Summary
 
+![Alt text](./analysis/aion_performance.png "Optional title")
+
+The performance benchmarks on the Aion system demonstrate that there is no significant performance difference between compiling software from source, using EasyBuild, or using binaries from the EESSI software stack.
+Bandwidth & Latency: Across all test cases (inter-node, cross-NUMA, and intra-core), all three methods delivered nearly identical results.
+Key Takeaway: This validates that the convenience and reproducibility offered by EESSI and EasyBuild do not come at the cost of performance on this architecture. Users can confidently leverage these tools without concern for performance degradation.
+
+---
+
+# Iris Performance Summary
+
+![Alt text](./analysis/iris_performance.png "Optional title")
+
+The benchmarks on the Iris system reveal a critical performance advantage when using managed software environments.
+Latency: The EESSI and EasyBuild installations delivered dramatically lower latency (2-3x faster) compared to the manual From Source build. This points to a significant optimization issue in the manual compilation for the Iris architecture.
+Bandwidth: Bandwidth performance was nearly identical across all three methods, indicating the issue was specific to latency optimization.
+Key Takeaway: Using EESSI and EasyBuild is strongly recommended on Iris, as their curated build recipes prevent severe performance regressions and ensure that the software is properly optimized for the hardware.
 

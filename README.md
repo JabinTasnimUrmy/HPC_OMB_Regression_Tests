@@ -74,7 +74,7 @@ Each benchmark is tested using **three compilation or sourcing methods**, all in
 ```
 ### Clone the project repository to your home or workspace directory on the cluster.
 ```bash
-git clone https://github.com/your-username/HPC-OMB-Regression-Tests.git
+git clone git@github.com:JabinTasnimUrmy/HPC_OMB_Regression_Tests.git
 cd HPC-OMB-Regression-Tests
 ```
 ### Environment Setup:

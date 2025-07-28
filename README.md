@@ -48,8 +48,63 @@ Each benchmark is tested using **three compilation or sourcing methods**, all in
 2. **EasyBuild compilation** using ReFrame’s EasyBuild integration
 3. **EESSI binaries** loaded directly from the EESSI software stack
 
+## Program Structure:
+![Alt text](./structure.png "Optional title")
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- ULHPC access (Aion or Iris)  
+- Bash shell  
+- ReFrame ≥ 4.7.4  
+
+## Clone & Setup
+### Access to a ULHPC cluster (aion or iris).
+```bash
+ ssh iris-cluster
+
+ or 
+
+ ssh aion-cluster
+```
+### A command-line environment:
+```bash
+ si
+```
+### Clone the project repository to your home or workspace directory on the cluster.
+```bash
+git clone https://github.com/your-username/HPC-OMB-Regression-Tests.git
+cd HPC-OMB-Regression-Tests
+```
+### Environment Setup:
+```bash
+module load devel/ReFrame/4.7.4-GCCcore-13.2.0
+```
+To run the OSU Micro-Benchmarks using ReFrame, use the following commands for different test suites:
+
+### 🔹 Basic OSU Latency Tests (Aion and Iris)
+```bash
+reframe -C reframe_tests/configs/configs.py -c reframe_tests/source/osu_build.py -c reframe_tests/source/osu_latency.py --run --performance-report
+```
+
+### 🔹 Basic OSU Bandwidth Tests (Aion and Iris)
+```bash
+reframe -C reframe_tests/configs/configs.py -c reframe_tests/source/osu_build.py -c reframe_tests/source/osu_bandwidth.py --run --performance-report
+```
+
+### 🔹 EasyBuild-based OSU Benchmarks (Aion and Iris)
+```bash
+reframe -C reframe_tests/configs/configs.py -c reframe_tests/easybuild_tests/ --run --performance-report
+```
+
+### 🔹 EESSI-based OSU Benchmarks (Aion/Iris)
+```bash
+reframe -C reframe_tests/configs/configs.py -c reframe_tests/eessi_tests/ --run --performance-report
+```
+
 
 ---
 
-## 📂 Project Structure
+
 

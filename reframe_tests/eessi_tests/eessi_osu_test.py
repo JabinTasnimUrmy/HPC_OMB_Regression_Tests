@@ -9,7 +9,7 @@ class EessiOsuTest(OsuPerformanceBase):
     descr = 'OSU Performance Test (Source: EESSI)'
     tags = {'eessi'}
     
-    # === THE FINAL FIX ===
+    
     # We stay inside the standard 'foss-2023b' environment.
     valid_prog_environs = ['foss-2023b']
 
@@ -21,5 +21,4 @@ class EessiOsuTest(OsuPerformanceBase):
             'module load EESSI/2023.06',
             'module load OSU-Micro-Benchmarks/7.2-gompi-2023b'
         ]
-        # We don't need to set self.modules, because the prerun_cmds
-        # will modify the environment so that the executable is found.
+        

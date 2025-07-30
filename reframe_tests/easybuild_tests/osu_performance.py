@@ -5,7 +5,7 @@ import reframe.utility.sanity as sn
 _THIS_FILE_DIR = os.path.dirname(os.path.realpath(__file__))
 
 # =================================================================================
-#  Part 1: The Build Fixture (This part is correct and unchanged)
+#  Part 1: The Build Fixture 
 # =================================================================================
 
 @rfm.simple_test
@@ -35,7 +35,7 @@ class OsuBuildEasyBuild(rfm.CompileOnlyRegressionTest):
         return self.build_system.generated_modules
 
 # =================================================================================
-#  Part 2: The Unified Performance Test (With the final fix)
+#  Part 2: The Unified Performance Test 
 # =================================================================================
 
 @rfm.simple_test
